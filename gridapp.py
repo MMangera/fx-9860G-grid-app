@@ -139,12 +139,12 @@ def main(load = None):
         f.close()
         idx = 1
         while read != []:
-            f = open(path[:-10]+f"APPANS/file{idx}.txt", "x")
+            f = open(path[:-10]+f"APPANS/file{idx}.py", "x")
             f.close()
-            f = open(path[:-10]+f"APPANS/file{idx}.txt", "w")
-            f.writelines(read[:150])
+            f = open(path[:-10]+f"APPANS/file{idx}.py", "w")
+            f.writelines([f"from appans.file{idx-1} import *"]+read[:149])
             f.close
-            read = read[150:]
+            read = read[149:]
             idx += 1
     elif ans == "N":
         pass
